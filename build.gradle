@@ -24,8 +24,7 @@ repositories {
 }
 
 ext {
-	set('awsSDKVersion', '2.29.21')
-	set('awsCloudVersion', '3.2.1')
+
 }
 
 dependencies {
@@ -41,13 +40,6 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-	// AWS SDK
-	implementation "software.amazon.awssdk:sqs:3.2.1"
-	implementation "software.amazon.awssdk:sts:${awsSDKVersion}"
-
-	implementation "io.awspring.cloud:spring-cloud-aws-starter-sqs:${awsCloudVersion}"
-	implementation "io.awspring.cloud:spring-cloud-aws-dependencies:${awsCloudVersion}"
 }
 
 tasks.named('test') {
