@@ -1,5 +1,5 @@
 services:
-  postgres:
+  sqs-demo-postgres:
     image: postgres:11.5-alpine
     environment:
       POSTGRES_DB: sqs-demo
@@ -10,5 +10,19 @@ services:
     volumes:
       - sqs-demo-postgres-data:/var/lib/postgresql/data
 
+  sqs-demo-localstack:
+    image: localstack/localstack:0.11.2
+    environment:
+      - SERVICES=sqs
+      - EDGE_PORT=4566
+      - DEFAULT_REGION=us-east-1
+      - DATA_DIR=/tmp/localstack/data
+    ports:
+      - "4566:4566"
+    volumes:
+      - sqs-demo-localstack-data:/tmp/localstack
+      - ./aws-init.sh:/docker-entrypoint-initaws.d/aws-init.sh
+
 volumes:
   sqs-demo-postgres-data:
+  sqs-demo-localstack-data:
