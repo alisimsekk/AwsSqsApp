@@ -10,5 +10,6 @@ import lombok.Data;
 public class UserCreateResponse {
     private Long userId;
     private String email;
+    private boolean isActive;
     private String validationToken;
 }

@@ -15,10 +15,10 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(UserRegistrationException.class)
-    public ResponseEntity<Map<String, String>> handleUserRegistrationException(
-            UserRegistrationException ex) {
-        log.error("User registration error: {}", ex.getMessage());
+    @ExceptionHandler(BaseException.class)
+    public ResponseEntity<Map<String, String>> handleBaseException(
+            BaseException ex) {
+        log.error(ex.getMessage());
         Map<String, String> error = new HashMap<>();
         error.put("error", ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);

@@ -1,8 +1,8 @@
 package com.simsekali.awssqsdemo.controller;
 
-import com.simsekali.awssqsdemo.controller.dto.AccountValidationResponse;
 import com.simsekali.awssqsdemo.controller.dto.UserCreateRequest;
 import com.simsekali.awssqsdemo.controller.dto.UserCreateResponse;
+import com.simsekali.awssqsdemo.controller.dto.UserDto;
 import com.simsekali.awssqsdemo.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +21,9 @@ public class UserController {
         return ResponseEntity.ok(userService.registerUser(request));
     }
 
-    @GetMapping("/validate/{token}")
-    public ResponseEntity<AccountValidationResponse> validateAccount(@PathVariable String token) {
-        return ResponseEntity.ok(userService.validateAccount(token));
+    @GetMapping
+    public ResponseEntity<UserDto> getUserByEmail(@RequestParam String email) {
+        UserDto user = userService.findByEmail(email);
+        return ResponseEntity.ok(user);
     }
 }

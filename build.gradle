@@ -24,8 +24,8 @@ repositories {
 }
 
 ext {
-	set('awsSDKVersion', '2.29.21')
-	set('awsCloudVersion', '3.2.1')
+	set('awsSDKVersion', '2.29.52')
+	set('awsCloudVersion', '3.3.0')
 }
 
 dependencies {
@@ -42,12 +42,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-	// AWS SDK
-	implementation "software.amazon.awssdk:sqs:${awsSDKVersion}"
-	implementation "software.amazon.awssdk:sts:${awsSDKVersion}"
-
+	implementation platform("io.awspring.cloud:spring-cloud-aws-dependencies:${awsCloudVersion}")
 	implementation "io.awspring.cloud:spring-cloud-aws-starter-sqs:${awsCloudVersion}"
-	implementation "io.awspring.cloud:spring-cloud-aws-dependencies:${awsCloudVersion}"
 }
 
 tasks.named('test') {

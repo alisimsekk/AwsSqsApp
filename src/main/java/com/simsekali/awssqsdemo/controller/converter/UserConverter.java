@@ -1,6 +1,7 @@
 package com.simsekali.awssqsdemo.controller.converter;
 
 import com.simsekali.awssqsdemo.controller.dto.UserCreateResponse;
+import com.simsekali.awssqsdemo.controller.dto.UserDto;
 import com.simsekali.awssqsdemo.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,14 @@ public class UserConverter {
                 .userId(user.getId())
                 .email(user.getEmail())
                 .validationToken(user.getValidationToken())
+                .build();
+    }
+
+    public UserDto toUserDto(User user) {
+        return UserDto.builder()
+                .id(user.getId())
+                .email(user.getEmail())
+                .isActive(user.isActive())
                 .build();
     }
 }

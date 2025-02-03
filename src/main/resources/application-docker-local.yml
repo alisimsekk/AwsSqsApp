@@ -12,9 +12,23 @@ spring:
     show-sql: true
   cloud:
     aws:
+      endpoint: http://localhost:4566
       region:
         static: us-east-1
+        auto: false
+      stack:
+        auto: false
+      credentials:
+        instance-profile: false
+        access-key: test
+        secret-key: test
       sqs:
         userSignUp:
-          source: http://localhost:4566/queue/SqsDemoLocalUserSignUp.fifo
-          deadletter: http://localhost:4566/queue/SqsDemoLocalUserSignUpDeadLetter.fifo
+          source: http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/UserSignUp.fifo
+          deadletter: http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/UserSignUpDeadLetter.fifo
+
+logging:
+  level:
+    io:
+      awspring:
+        cloud=debug:
