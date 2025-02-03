@@ -1,6 +1,5 @@
 package com.simsekali.awssqsdemo.repository;
 
-import com.simsekali.awssqsdemo.controller.dto.UserDto;
 import com.simsekali.awssqsdemo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
