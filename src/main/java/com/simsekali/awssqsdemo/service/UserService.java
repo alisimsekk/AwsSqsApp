@@ -28,7 +28,7 @@ public class UserService {
 
     public UserCreateResponse registerUser(UserCreateRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new UserActivationException("Email already registered");
+            throw new UserActivationException("Email is already registered");
         }
         User user = User.create(request);
         User savedUser = userRepository.save(user);
