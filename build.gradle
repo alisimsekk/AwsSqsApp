@@ -39,8 +39,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-	implementation platform("io.awspring.cloud:spring-cloud-aws-dependencies:${awsCloudVersion}")
-	implementation "io.awspring.cloud:spring-cloud-aws-starter-sqs:${awsCloudVersion}"
+	implementation platform("io.awspring.cloud:spring-cloud-aws-dependencies:${springCloudAwsVersion}")
+	implementation "io.awspring.cloud:spring-cloud-aws-starter-sqs:${springCloudAwsVersion}"
 }
 
 tasks.named('test') {
