@@ -24,7 +24,7 @@ repositories {
 }
 
 ext {
-	set('awsCloudVersion', '3.3.0')
+	set('springCloudAwsVersion', '3.3.0')
 }
 
 dependencies {
