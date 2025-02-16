@@ -9,6 +9,7 @@ import com.simsekali.awssqsdemo.controller.dto.UserCreateResponse;
 import com.simsekali.awssqsdemo.controller.dto.UserDto;
 import com.simsekali.awssqsdemo.entity.User;
 import com.simsekali.awssqsdemo.exception.UserActivationException;
+import com.simsekali.awssqsdemo.exception.UserAlreadyRegistered;
 import com.simsekali.awssqsdemo.exception.UserNotFoundExecption;
 import com.simsekali.awssqsdemo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ public class UserService {
 
     public UserCreateResponse registerUser(UserCreateRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new UserActivationException("Email is already registered");
+            throw new UserAlreadyRegistered("Email is already registered");
         }
         User user = User.create(request);
         User savedUser = userRepository.save(user);
