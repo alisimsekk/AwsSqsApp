@@ -19,7 +19,6 @@ public class AwsSQSManagementService {
     private final SqsTemplate sqsTemplate;
     private static final String QUEUE_MESSAGE_TYPE_NAME = "USER_SIGN_UP";
 
-
     public void sendMessage(SQSQueueMessageRequest queueMessage) {
         try {
             sqsTemplate
